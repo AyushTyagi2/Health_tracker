@@ -202,16 +202,19 @@ export default function HealthTracker() {
                      ['Calories', 'Quantity', 'BP_Systolic', 'BP_Diastolic', 'Sugar_Level', 'Weight', 'Waist_Circumference'].includes(fieldName) ? 'number' : 
                      'text';
 
-    const placeholder = {
-      'Food_Item': 'e.g., Grilled chicken salad',
-      'Quantity': '150',
-      'Calories': '320',
-      'BP_Systolic': '120',
-      'BP_Diastolic': '80',
-      'Sugar_Level': '95',
-      'Weight': '70.5',
-      'Waist_Circumference': '32',
-    }[fieldName] || '';
+    const placeholderMap: Record<string, string> = {
+  'Food_Item': 'e.g., Grilled chicken salad',
+  'Quantity': '150',
+  'Calories': '320',
+  'BP_Systolic': '120',
+  'BP_Diastolic': '80',
+  'Sugar_Level': '95',
+  'Weight': '70.5',
+  'Waist_Circumference': '32',
+};
+
+ const placeholder = placeholderMap[fieldName] || '';
+
 
     return (
       <input
